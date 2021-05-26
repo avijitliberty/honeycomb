@@ -5,10 +5,10 @@
 
 # Appearance
 
-theme: minimal
+theme: ocean_custom
 day_night: true
-font: ''
-font_size: L
+font: 'Native'
+font_size: M
 
 # SEO
 
