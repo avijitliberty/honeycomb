@@ -20,7 +20,9 @@ image:
 
 ---
 
-## Overview
+{{< toc >}}
+
+### Overview
 This post will take you through a step by step guide to building and deploying a simple Java app in the AWS cloud. The app will use a few well known AWS services which I’ll describe along the way. There is quite a bit to cover in this post so the overview of the AWS services will be light. For those interested in finding out more I’ll link to the appropriate section of the AWS documentation.
 
 I have broken down the projects into sub-projects in order to keep them easier to read.
@@ -30,10 +32,10 @@ I have broken down the projects into sub-projects in order to keep them easier t
 * In the [third part](/aws/projects/autoscaling-loadbalancing/) we will add AutoScaling-LoadBalancing via Console.
 * In the [fourth part](/aws/projects/cloudformation/) we will do the same thing but via cloudformation.
 
-## Prerequisites:
+### Prerequisites:
 In order to get the sample app up and running you’ll need access to AWS. If you don’t already have access you can register for a free account which will give you access to a bunch of great services and some pretty generous allowances. I’d encourage you to get an account set up now before going any further.
 
-## What will the sample application look like?
+### What will the sample application look like?
 
 The app we’re going to build is a simple user management app and will consist of a Spring Boot REST layer and an Thymeleaf Front end. We’ll deploy the application to AWS and make use of the following services.
 
@@ -56,17 +58,17 @@ We’re going to build a simple CRUD style user management app to create, view a
 
   ![](/images/uploads/springboot-aws-starter-delete-user.PNG)
 
-## Source Code
+### Source Code
 
 The full source code for this tutorial is available on github at [springboot-aws-starter](https://github.com/avijitliberty/springboot-aws-starter.git). You may find it useful to pull the code locally so that you can experiment with it as you work through the tutorial.
 
-## Application Structure
+### Application Structure
 
 ![](/images/uploads/springboot-aws-starter-project-structure.PNG)
 
 In the sections that follow we’ll look at some of the most important components in detail. The focus of this post isn’t Spring Boot so I wont describe every class in detail. We’ll focus more on AWS integration and making our app cloud ready.
 
-## Dependencies
+### Dependencies
 
 We start with [Spring Initializer](https://start.spring.io/) and add the following dependencies.
 
@@ -174,7 +176,7 @@ More details here: [Spring Cloud AWS](https://cloud.spring.io/spring-cloud-stati
 ```
 </details>
 
-## Domain Model
+### Domain Model
 
 The domain model for the demo app is very simple and consist of just 3 entities – a _User_, _Address_ and _UserImage_.
 
@@ -324,7 +326,7 @@ public class UserImage {
 ```
 </details>
 
-## Domain Controller
+### Domain Controller
 
 The SpringbootAwsStarterController exposes endpoints for creating, retrieving and deleting users and is called from a Thymeleaf views that we’ll create later.
 
@@ -425,7 +427,7 @@ public class SpringbootAwsStarterController {
 ```
 </details>
 
-## Service Layer
+### Service Layer
 
 <details>
   <summary>SpringbootAwsStarterServiceImpl.java</summary>
@@ -657,7 +659,7 @@ The Spring Framework provides a `org.springframework.core.io.ResourceLoader` abs
 
 Also we would be using AWS CloudFormation service eventually to spin up this infrastructure. The buckets created via CloudFormation will typically have a generated name that must be used as the bucket name. In order to allow application developers to define _static_ names inside their configuration, [Spring Cloud AWS](https://cloud.spring.io/spring-cloud-static/spring-cloud-aws/2.2.0.M2/reference/html/#_using_amazon_web_services) provides support to resolve the generated bucket names. Application developers can use the `org.springframework.cloud.aws.core.env.ResourceIdResolver` interface to resolve the physical names that are generated based on the logical names.
 
-#### Java Resource Configuration for AWS
+###### Java Resource Configuration for AWS
 
 The _AwsResourceConfig_ class handles configuration required for integration with S3 storage and the MySQL instance running on RDS. The contents of this class are explained in detail below.
 
@@ -697,7 +699,7 @@ public class AwsResourceConfig {
 ```
 </details>
 
-## XML Resource Configuration for AWS
+### XML Resource Configuration for AWS
 
 In order to access protected resources using Amazons SDK an access key and a secret key must be supplied. [Spring Cloud for AWS](http://cloud.spring.io/spring-cloud-aws/) provides an XML namespace for configuring both values so that they are available to the SDK at runtime.
 
@@ -731,7 +733,7 @@ In order to access protected resources using Amazons SDK an access key and a sec
 ```
 </details>
 
-## Spring Configuration
+### Spring Configuration
 
 We are using 2 profiles for our application.
 
@@ -855,7 +857,7 @@ logging:
 
 Now that the core server side components are in place it’s time to look at some of the client side code. I’m not going to cover it in great detail as the focus of this post is integrating with AWS.
 
-## Thymeleaf UI
+### Thymeleaf UI
 
 WE make use of Thymeleaf Fragments to reuse some common parts of a site. We make use of the following frontend libraries for rendering the UI and include them in the layout section:
 
@@ -864,25 +866,25 @@ WE make use of Thymeleaf Fragments to reuse some common parts of a site. We make
 * bootstrap-datepicker : 1.9.0
 * jquery : 3.4.1
 
-#### header.html
+###### header.html
 
-#### footer.html
+###### footer.html
 
-#### layout.html
+###### layout.html
 
-#### users.html
+###### users.html
 
-#### add-user.html
+###### add-user.html
 
-#### edit-user.html
+###### edit-user.html
 
-#### error.html
+###### error.html
 
 The demo app is now complete so its time to turn our attention to AWS so that we can configure the resources needed.
 
 Please refer to this article for Step-By-Step guide to the next steps: [EC2-S3-RDS](/aws/projects/ec2-s3-rds/)
 
-## Running the application locally
+### Running the application locally
 Its preferable to run the application locally before attempting to deploy it to EC2 as it helps iron out any issues with RDS or S3 connectivity.
 
 In order to run the application we need to supply application properties on start-up. The properties are defined below and are set based on the values used to create the database instance and the access keys associated with your account.

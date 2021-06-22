@@ -10,13 +10,10 @@ main:
   - name: Projects
     url: '#projects'
     weight: 20
-  - name: HowTo
-    url: '#posts'
-    weight: 30
   - identifier: cheatsheets
     name: CheatSheets
     url: '/cheatsheets/'
-    weight: 40
+    weight: 30
   - name: GitHub
     url: '/cheatsheets/github/'
     parent: cheatsheets
@@ -37,6 +34,9 @@ main:
     url: '/cheatsheets/springboot/'
     parent: cheatsheets
     weight: -80
+  - name: HowTo
+    url: '#posts'
+    weight: 40
   - name: About
     url: '#about'
     weight: 50

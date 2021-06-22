@@ -273,7 +273,17 @@ public interface RoleRepository extends CrudRepository<Role, Long>{
 
 That's it! We now have a fully-functional REST API.
 
-Spring Boot automatically spins up Spring Data JPA to create a concrete implementation of the PersonRepository and configure it to talk to a back end in-memory database by using JPA.
+Spring Boot automatically spins up Spring Data JPA to create a concrete implementation of the UserRepository and configure it to talk to a back end in-memory database by using JPA.
+This exposes the basic CRUD:
+
+* GET /users
+* POST /users
+* GET /users/{id}
+* PUT /users/{id}
+* POST /users/{id}
+* PATCH /users/{id}
+* DELETE /users/{id}
+* HEAD /users/{id}
 
 Spring Data REST builds on top of Spring MVC. It creates a collection of Spring MVC controllers, JSON converters, and other beans to provide a RESTful front end. These components link up to the Spring Data JPA backend. When you use Spring Boot, this is all autoconfigured. If you want to investigate how that works, by looking at the RepositoryRestMvcConfiguration in Spring Data REST.
 
