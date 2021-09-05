@@ -11,6 +11,8 @@ projects: []
 # Date published
 date: "2020-12-13T00:00:00Z"
 
+toc: true
+
 # Date updated
 lastmod: "2020-12-13T00:00:00Z"
 

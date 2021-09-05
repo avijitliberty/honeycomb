@@ -15,12 +15,13 @@ weight: 30
 external_link: ""
 
 image:
-  caption: Photo by https://spring.io/
-  focal_point: Smart
+  placement: 1
+  caption: "Photo by https://spring.io/"
+  focal_point: "Smart"
+  preview_only: false
+  alt_text: An optional description of the image for screen readers.  
 
 ---
-
-{{< toc >}}
 
 ### Overview
 This post will take you through a step by step guide to building and deploying a simple Java app in the AWS cloud. The app will use a few well known AWS services which I’ll describe along the way. There is quite a bit to cover in this post so the overview of the AWS services will be light. For those interested in finding out more I’ll link to the appropriate section of the AWS documentation.

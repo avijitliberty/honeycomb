@@ -17,6 +17,8 @@ lastmod: "2021-04-03T00:00:00Z"
 # Is this an unpublished draft?
 draft: false
 
+toc: true
+
 # Show this page in the Featured widget?
 featured: false
 
