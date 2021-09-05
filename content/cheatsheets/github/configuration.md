@@ -16,9 +16,12 @@ Git Configuration
 
 * Create a new local repository:
 
-  > Note: It will create the hidden .git folder which is used by git to manage the repository in your working directory
-
           $ git init
+
+  {{% callout note %}}
+  It will create the hidden .git folder which is used by git to manage the repository in your working directory
+  {{% /callout %}}
+
 * Configure the author name and email address to be used with your commits:
 
           $ git config --global user.name "LAST_NAME.FIRST_NAME"
@@ -33,6 +36,19 @@ Git Configuration
 
           $ git config --global --add merge.tool kdiff3
           $ git config --global --add mergetool.kdiff3.path "C:/Program Files/KDiff3/kdiff3.exe"
+* Setup Personal Access Token:
+
+    - Create your Personal Access Token from the Developer settings and keep the token safe to use it for future.
+    - While cloning/pulling/pushing code from remote use your username and generated token when prompted for username and password respectively.
+    - If you would not like to provide credentials for every "repo" operations you could cache them. The Git credential cache runs a daemon process which caches your credentials in memory and hands them out on demand.
+    ```
+        $ git config --global credential.helper manager
+    ```
+
+  {{% callout note %}}
+  On Windows this stores your credentials in the Windows credential store which has a Control Panel interface where you can delete or edit your stored credentials. With this store, your details are secured by your Windows login and can persist over multiple sessions.
+  {{% /callout %}}
+
 * Setup proxies to work with Git:
     * Option1: Git Proxy without Cntlm: (Not secure as our credentials are being sent "over the wire")
     ```

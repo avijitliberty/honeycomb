@@ -63,22 +63,31 @@ feature:
 # Uncomment to use custom SVG icons.
 # Place custom SVG icon in `assets/images/icon-pack/`, creating folders if necessary.
 # Reference the SVG icon name (without `.svg` extension) in the `icon` field.
+- icon: "jfrog"
+  icon_pack: "custom"
+  name: "JFrog"
+  description:
+  #url:
 - icon: "kubernetes"
   icon_pack: "custom"
   name: "Kubernetes"
   description:
+  #url:
 - icon: "spring"
   icon_pack: "custom"
   name: "SpringBoot"
   description:
+  url: /cheatsheets/springboot
 - icon: "centos"
   icon_pack: "custom"
   name: "Centos"
   description:
+  url: /post/centos
 - icon: "ubuntu"
   icon_pack: "custom"
   name: "Ubuntu"
   description:
+  #url:
 - icon: "vagrant"
   icon_pack: "custom"
   name: "Vagrant"
