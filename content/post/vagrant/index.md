@@ -49,19 +49,21 @@ categories:
 
 As part of my upcoming HowTo tutorials on my blog, I will need to install CentOS 8 on a virtualbox using vagrant. My goal would be to assign a static IP for these machines and use them as Docker hosts.
 
-And one of the best ways to do that is via a tool called Vagrant, and that's what I'll be showing here.  You can find the different Linux distros via [Vagrant Cloud](https://app.vagrantup.com/boxes/search). And we use them to spin up VMs and tear them down once done very quickly.
+And one of the best ways to do that is via a tool called Vagrant, and that's what I'll be showing here.  
+You can find the different Linux distros via [Vagrant Cloud](https://app.vagrantup.com/boxes/search). And we use them to spin up VMs and tear them down once done very quickly.
 
 Vagrant works with different hypervisor providers like VirtualBox, Docker, Hyper-V, VMware. We will be using VirtualBox here which is a free, open source cross platform hypervisor software.
 
 In a previous article I showed how to [Install of CentOS 7.0 with VirtualBox]({{< ref "/post/centos/index.md" >}} "Centos 7").
-In this article I want to script/automate all the clicking around in VirtualBox, check them into version control, and keep a nice history of them. Vagrant is just automating the process of creating a VM inside of VirtualBox.
+In this article I want to script/automate all the clicking around in VirtualBox, check them into version control, and keep a nice history of them.
+Vagrant is just automating the process of creating a VM inside of VirtualBox.
 
 ### Get Started
 
 The things that you will need:
 
-- 👉 [Install Vagrant](https://www.vagrantup.com/downloads)
-- 👉 [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads/)
+- 👉 [Vagrant](https://www.vagrantup.com/downloads)
+- 👉 [VirtualBox](https://www.virtualbox.org/wiki/Downloads/)
 
 Install Vagrant and open a command terminal and make sure vagrant cli is available.
 ```
@@ -250,7 +252,6 @@ Next I will break down the **Vagrantfile** instructions below :
     sudo usermod -aG docker vagrant
     SCRIPT
     ```
-
 
 Next we will do **vagrant up**. vagrant up means create the VM and start it up.
 And also in that case, vagrant will pull down the box image from vagrant cloud if we don't have it already.

@@ -45,7 +45,7 @@ categories:
 ### Overview
 
 I would be following the steps as explained in the [JFrog Wiki](https://www.jfrog.com/confluence/display/JFROG/Installing+Artifactory#InstallingArtifactory-docker_volumes).
-My goal was to get artifactory oss running locally on a Ubuntu VM in a quick start way and explore some of the inner workings under the hood. Obviously if you are looking to get going with the JFrog platform for an enterprise I would recommend reviewing [documentation](https://www.jfrog.com/confluence/display/JFROG/Installing+the+JFrog+Platform) and start [here](https://jfrog.com/artifactory/)
+My goal was to get artifactory oss running on a Ubuntu VM in a quick start way and explore some of the inner workings under the hood. Obviously if you are looking to get going with the JFrog platform for an enterprise I would recommend reviewing [documentation](https://www.jfrog.com/confluence/display/JFROG/Installing+the+JFrog+Platform) and start [here](https://jfrog.com/artifactory/)
 
 ### Prerequisites
 
@@ -108,11 +108,25 @@ docker-compose -p rt down
 ### Vagrant
 
 Wouldn't it be nice to get all of this going at one go! I thought so too. So I created a Vagrant file just for that.
-Check it out here:
+Check it out in [GitHub](https://github.com/avijitliberty/vagrant-virtualbox-docker-artifactory.git)
+
 All you would need to do is clone the repo and do:
 ```
 vagrant up
 ```
 
 That's it! :dash: And you have a working standalone installation of Artifactory OSS.
+
 Login at ```http://SERVER_IP:8082/ui/```
+
+### Next steps
+
+There were few other steps I had to take to get artifactory working in a meaningful way in my machine:
+
+* Specify [File Handle Allocation Limit](https://www.jfrog.com/confluence/display/JFROG/System+Requirements#SystemRequirements-Xray-FileHandleAllocationLimit)
+* Specify [JVM Memory Allocation](https://www.jfrog.com/confluence/display/JFROG/System+Requirements#SystemRequirements-Java)
+* Specify [Log Rotation](https://www.jfrog.com/confluence/display/JFROG/Logging#Logging-ConsoleLog.1)
+
+JFrog is the numero uno in the enterprise as a binary repository management and there's a lot to explore here.
+
+Start with [JFROG Wiki](https://www.jfrog.com/confluence/display/JFROG/Get+Started)
