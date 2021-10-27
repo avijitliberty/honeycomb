@@ -34,14 +34,14 @@ item:
 - certificate_url: https://www.credly.com/badges/2d8b24c0-ece3-4c88-97c2-bfebf2979305/public_url
   date_end: ""
   date_start: "2021-01-06"
-  description: Formulated informed blockchain models, hypotheses, and use cases.
+  description:
   organization: Scaled Agile
   organization_url: https://www.scaledagile.com/
   title: Certified SAFe® 5 Practitioner
   url: "https://www.scaledagile.com/"
-- certificate_url: https://www.datacamp.com
+- certificate_url:
   date_end: ""
-  date_start: "2020-07-01"
+  date_start: "2018-07-01"
   description: ""
   organization: Guidewire
   organization_url: https://www.guidewire.com/

@@ -67,7 +67,7 @@ feature:
   icon_pack: "custom"
   name: "JFrog"
   description:
-  #url:
+  url: /post/artifactory
 - icon: "kubernetes"
   icon_pack: "custom"
   name: "Kubernetes"
