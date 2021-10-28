@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: HoneyComb # Website name
-baseurl: 'https://honeycomb-host.netlify.app/' # Website URL
+baseurl: 'https://www.honeycomb.host/' # Website URL
 copyright: '' # Footer text, e.g. '© {year} Me'
 
 ############################

@@ -19,7 +19,7 @@ Release strategy with Gitflow
 
 ### Overview
 
-For managing the release strategy in Git for my projects I'm planning on using a slightly modified version of a Gitflow workflow. If you're not familiar there's a lot of info online documenting this pattern, and Atlassian has a nice write-up on their site. By applying this workflow we hope to be able to maintain stable branches to run builds and deploys from, provide useful checkpoints to serve as a natural code review, and allow easier merges that are tied more directly to the individual delivering conflicting code.
+For managing the release strategy in Git for the enterprise we plan on using a slightly modified version of a Gitflow workflow. If you're not familiar there's a lot of info online documenting this pattern, and [Atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) has a nice write-up on their site. By applying this workflow we hope to be able to maintain stable branches to run builds and deploys from, provide useful checkpoints to serve as a natural code review, and allow easier merges that are tied more directly to the individual delivering conflicting code.
 
 The pattern breaks down into two main groups of branches:
 
@@ -75,8 +75,8 @@ $ git push origin --all
 
 ### Merging and Creating Monthly Release Branches
 
-Based on the branch strategy when a release (EC or monthly) goes to production the release branch it came from should be merged to master with a tag added to the head commit of the release branch. If the release is a monthly release then the next monthly release branch should also be created. To manage these activities some scripted build tasks have been created: https://bitbucket.fusion.lmig.com/projects/USCM-CLAIMS/repos/nav/browse/GitBranchTasks
-The Jenkins jobs to invoke these tasks can be invoked by any developer, however if there is a failure (the script enforces FF only merges to avoid merge commits) then the person invoking must be prepared to own cleaning it up. If the job does fail a member of app arch with admin access to the nav repo may be needed to help clean things up.
+Based on the branch strategy when a release (EC or monthly) goes to production the release branch it came from should be merged to master with a tag added to the head commit of the release branch. If the release is a monthly release then the next monthly release branch should also be created. To manage these activities some scripted build tasks have been created.
+The Jenkins jobs to invoke these tasks can be invoked by any developer, however if there is a failure (the script enforces FF only merges to avoid merge commits) then the person invoking must be prepared to own cleaning it up. If the job does fail a member with admin access to the repo may be needed to help clean things up.
 
 {{% callout note %}}
 Before using the Jenkins job to perform the monthly construct tasks, it's a good idea to check BB and make sure the release branch to be merged to master isn't ahead of develop at all as this may cause conflicts when merging. It shouldn't be since construct happens after the production release, but as a sanity check it's a good idea to look first.
