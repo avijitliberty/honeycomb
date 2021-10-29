@@ -6,7 +6,7 @@
 # Appearance
 
 theme: ocean_custom
-day_night: true
+day_night: false
 font: 'Native'
 font_size: M
 
