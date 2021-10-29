@@ -20,7 +20,7 @@ twitter: ''
 
 # Contact (edit or remove options as required)
 
-email: avijit.twitter@gmail.com
+email:
 phone:
 appointment_url: 'https://calendly.com'
 contact_links:
@@ -32,10 +32,6 @@ contact_links:
     icon_pack: fab
     name: Chat on Keybase
     link: 'https://keybase.io/'
-  - icon: comments
-    icon_pack: fas
-    name: Discuss on Forum
-    link: 'https://discourse.gohugo.io'
 
 # Site header
 
