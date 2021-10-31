@@ -2,4 +2,3 @@
 
 ### [HoneyComb](https://www.honeycomb.host/)
 
-Published with Wowchemy — the free, open source website builder that empowers creators.
