@@ -1,5 +1,5 @@
 ---
-title: Spring Unit Testing
+title: Effective Automated Testing in Spring
 summary: Testing a SpringBoot REST API
 tags:
 - Spring Boot
@@ -19,15 +19,199 @@ image:
 
 ---
 
-## Overview
+### Overview
 
-In this project we would be demonstrating automated testing principles using a hotel reservation application built following a microservices architecture. A common industry best practice is to have microservices communicating via JSON over RESTful APIs.
+In this project we would be demonstrating automated testing principles using a hotel reservation application built following a microservices architecture using SpringBoot ecosystem. A common industry best practice is to have microservices communicating via JSON over RESTful APIs.
 
-## Project Overview
+We would be using JUnit5 for writing the tests.
+
+### JUnit5
+
+JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+• JUnit Platform: Foundation to launch testing frameworks & it defines the TestEngine API for developing testing frameworks
+• JUnit Jupiter: New programming model and extension model and provides the JupiterTestEngine that implements the TestEngine interface to
+run tests on the JUnit Platform
+• JUnit Vintage: Provides a TestEngine to run both JUnit 3 and JUnit 4 tests
+
+{{% callout note %}}
+As of Spring Boot 2.4.0, the spring-boot-starter-test no longer includes the JUnit Vintage Engine but does include the JUnit Jupiter
+{{% /callout %}}
+
+So basically you got your Swiss Army Knife with the below testing dependency for all your testing needs.
+
+```xml
+  <dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-test</artifactId>
+  <scope>test</scope>
+  </dependency>
+```
+For further application setup support, take a look at the different [JUnit 5 project setup examples](https://github.com/junit-team/junit5-samples) on GitHub.
 
 ### RoomService
 
-RoomService is a pretty standard SpringBoot Microservice. We have the domain entity Room.java which has the basic attributes describing a hotel room and we have annotated the class and attributes with JPA annotations to persist the entity in a database.
+RoomService is a pretty standard SpringBoot CRUD Microservice.
+
+#### Dependencies
+
+We start with [Spring Initializer](https://start.spring.io/):
+- pick spring-boot-starter-parent as v2.4.10,
+- choose WAR packaging,
+- and add the following dependencies:
+  - spring-boot-starter-data-jpa
+  - spring-boot-starter-web
+  - h2
+  - spring-boot-starter-test
+  - spring-restdocs-mockmvc
+
+{{% callout note %}}
+
+We would be reusing this project to showcase the full [DevOps](/project/devops/) pipeline including Git, Jenkins and Artifactory and more.
+To facilitate these activities we had made these additional changes:
+
+- distributionManagement - Tells Maven that these are the repositories where I wish to push my code i.e springboot-junit-libs-release-local for releases and springboot-junit-libs-snapshot-local for the snapshot builds.
+
+- scm - Tells Maven the Source Code Management repository we wish to connect to, [GitHub](https://github.com/avijitliberty/springboot-junit) in this case
+
+- plugin - maven-release-plugin will help with releasing of the code to the releases repository.
+{{% /callout %}}
+
+<details>
+  <summary>pom.xml</summary>
+
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <project xmlns="http://maven.apache.org/POM/4.0.0"
+  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  	<modelVersion>4.0.0</modelVersion>
+  	<parent>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-parent</artifactId>
+  		<version>2.4.10</version>
+  		<relativePath /> <!-- lookup parent from repository -->
+  	</parent>
+  	<groupId>host.honeycomb.room</groupId>
+  	<artifactId>room-service</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<packaging>war</packaging>
+  	<name>room-service</name>
+  	<description>Demo project for Spring Boot</description>
+  	<properties>
+  		<java.version>1.8</java.version>
+  	</properties>
+
+  	<distributionManagement>
+  		<repository>
+  			<id>release</id>
+  			<name>releases</name>
+  			<url>http://192.168.56.30:8082/artifactory/springboot-junit-libs-release-local</url>
+  		</repository>
+  		<snapshotRepository>
+  			<id>snapshot</id>
+  			<name>snapshots</name>
+  			<url>http://192.168.56.30:8082/artifactory/springboot-junit-libs-snapshot-local</url>
+  		</snapshotRepository>
+  	</distributionManagement>
+
+  	<scm>
+  		<connection>scm:git@github.com:avijitliberty/springboot-junit.git</connection>
+  		<developerConnection>scm:git@github.com:avijitliberty/springboot-junit.git</developerConnection>
+  		<url>git@github.com:avijitliberty/springboot-junit.git</url>
+  		<tag>HEAD</tag>
+  	</scm>
+
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-web</artifactId>
+  		</dependency>
+
+  		<dependency>
+  			<groupId>com.h2database</groupId>
+  			<artifactId>h2</artifactId>
+  <!-- 			<scope>runtime</scope> -->
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-tomcat</artifactId>
+  			<scope>provided</scope>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-test</artifactId>
+  			<scope>test</scope>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter</artifactId>
+  			<scope>test</scope>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.springframework.restdocs</groupId>
+  			<artifactId>spring-restdocs-mockmvc</artifactId>
+  			<scope>test</scope>
+  		</dependency>
+  	</dependencies>
+
+  	<build>
+  		<plugins>
+  			<plugin>
+  				<groupId>org.asciidoctor</groupId>
+  				<artifactId>asciidoctor-maven-plugin</artifactId>
+  				<version>1.5.8</version>
+  				<executions>
+  					<execution>
+  						<id>generate-docs</id>
+  						<phase>prepare-package</phase>
+  						<goals>
+  							<goal>process-asciidoc</goal>
+  						</goals>
+  						<configuration>
+  							<sourceDocumentName>index.adoc</sourceDocumentName>
+  							<backend>html</backend>
+  							<attributes>
+  								<snippets>${project.build.directory}/snippets</snippets>
+  							</attributes>
+  						</configuration>
+  					</execution>
+  				</executions>
+  				<dependencies>
+  					<dependency>
+  						<groupId>org.springframework.restdocs</groupId>
+  						<artifactId>spring-restdocs-asciidoctor</artifactId>
+  						<version>${spring-restdocs.version}</version>
+  					</dependency>
+  				</dependencies>
+  			</plugin>
+  			<plugin>
+  				<groupId>org.springframework.boot</groupId>
+  				<artifactId>spring-boot-maven-plugin</artifactId>
+  			</plugin>
+  			<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-release-plugin</artifactId>
+  				<version>2.5.1</version>
+  				<configuration>
+  					<tagNameFormat>v@{project.version}</tagNameFormat>
+  					<autoVersionSubmodules>true</autoVersionSubmodules>
+  				</configuration>
+  			</plugin>
+  		</plugins>
+  	</build>
+
+  </project>
+  ```
+
+</details>
+
+#### Application Code
+
+We have the domain entity Room.java which has the basic attributes describing a hotel room and we have annotated the class and attributes with JPA annotations to persist the entity in a database.
 
 <details>
   <summary>Room.java</summary>
@@ -168,8 +352,7 @@ public class RoomServiceImpl implements RoomService {
 
 #### Unit Testing
 
-To unit test the RoomServiceImpl we would create the TestRoomServiceImpl and mock the RoomRepo using the Mockito library.
-We would simulate the behavior of the RoomRepo.findByRoomNumber() method call for the different test cases and asserting expected behavior.
+To unit test the RoomServiceImpl we would create the TestRoomServiceImpl and mock the RoomRepo using the Mockito library. We would simulate the behavior of the RoomRepo.findByRoomNumber() method call for the different test cases and asserting expected behavior.
 
 <details>
   <summary>TestRoomServiceImpl.java</summary>

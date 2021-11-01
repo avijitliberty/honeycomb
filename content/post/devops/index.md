@@ -1,9 +1,9 @@
 ---
-title: Install and Setup DevOps toolchain
-subtitle: Welcome 👋 We know that first impressions are important, so we've populated your new site with some initial content to help you get familiar with everything in no time.
+title: How To install and setup DevOps toolchain
+subtitle: Install DevOps toolchain - GitFlow, Maven, Tomcat, Jenkins, Artifactory, ELK Stack
 
 # Summary for listings and search engines
-summary: Welcome 👋 We know that first impressions are important, so we've populated your new site with some initial content to help you get familiar with everything in no time.
+summary: Install DevOps toolchain - GitFlow, Maven, Tomcat, Jenkins, Artifactory, ELK Stack
 
 # Link this post with a project
 projects: []
@@ -14,7 +14,7 @@ date: "2021-09-11T00:00:00Z"
 toc: true
 
 # Date updated
-lastmod: "2021-09-11T00:00:00Z"
+lastmod: "2021-10-30T00:00:00Z"
 
 # Is this an unpublished draft?
 draft: false
@@ -34,10 +34,10 @@ authors:
 - admin
 
 tags:
-- Academic
+- DevOps
 
 categories:
-- Demo
+
 ---
 
 ### Overview
@@ -57,4 +57,16 @@ The things that you will need:
 - 👉 [Logstash](https://www.elastic.co/downloads/logstash)
 - 👉 [Kibana](https://www.elastic.co/downloads/kibana)
 
-[Generating a new SSH key](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+### Installation
+
+#### GitFlow
+
+#### Maven
+
+#### Tomcat
+
+#### Artifactory
+
+#### Jenkins
+
+#### ELK Stack

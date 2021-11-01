@@ -22,3 +22,42 @@ image:
 ---
 
 ## Overview
+
+### Install DevOps Toolchain
+
+1. Setup Artifactory
+   - Startup Artifactory
+   - Setup Admin Account
+   - Port 8082
+2. Setup Tomcat
+   - Startup Tomcat
+   - Update tomcat-users.xml
+   - Port 8080
+3. Setup Jenkins
+   - Startup Jenkins
+   - Port 8090
+4. Setup Maven
+   - Startup MAVEN_HOME
+   - Generate maven settings.xml and settings-security.xml
+
+   mvn -emp <artifactory-password>
+   mvn -ep <artifactory-password>
+
+#### Create Artifactory repository
+
+![](/images/uploads/CreateRepo-Step1.png)
+![](/images/uploads/CreateRepo-Step2.png)
+![](/images/uploads/CreateRepo-Step3.png)
+![](/images/uploads/CreateRepo-Step4.png)
+
+#### Development
+
+1. Setup SSH for GitHub.
+[Generating a new SSH key](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+2. Create a GitHub repository.
+3. Create a Spring Boot Project.
+4. Import Project to STS.
+5. Configure for SCM and Artifactory.
+6. Commit changes to the feature branch and push to GitHub.
+7. Create a pull request to develop branch and merge.
