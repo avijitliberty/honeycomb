@@ -61,3 +61,15 @@ image:
 5. Configure for SCM and Artifactory.
 6. Commit changes to the feature branch and push to GitHub.
 7. Create a pull request to develop branch and merge.
+
+#### Continuous Integration
+
+1. SSH authentication between GitHub and Jenkins
+2. Install and Configure Jenkins Plugins.
+   - Conditional Buildstep Plugin
+   - Deploy to container Plugin
+   - Environment Injector Plugin
+   - Git Parameter Plugin
+   - GitHub Branch Source Plugin
+3. Build SNAPSHOT version using Jenkins.
+4. Configure Jenkins to Deploy to Tomcat.
