@@ -59,6 +59,19 @@ image:
 3. Create a Spring Boot Project.
 4. Import Project to STS.
 5. Configure for SCM and Artifactory.
+
+{{% callout note %}}
+
+We would be reusing this project to showcase the full [DevOps](/project/devops/) pipeline including Git, Jenkins and Artifactory and more.
+To facilitate these activities we had made these additional changes:
+
+- distributionManagement - Tells Maven that these are the repositories where I wish to push my code i.e springboot-junit-libs-release-local for releases and springboot-junit-libs-snapshot-local for the snapshot builds.
+
+- scm - Tells Maven the Source Code Management repository we wish to connect to, [GitHub](https://github.com/avijitliberty/springboot-junit) in this case
+
+- plugin - maven-release-plugin will help with releasing of the code to the releases repository.
+{{% /callout %}}
+
 6. Commit changes to the feature branch and push to GitHub.
 7. Create a pull request to develop branch and merge.
 

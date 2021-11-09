@@ -64,18 +64,6 @@ We start with [Spring Initializer](https://start.spring.io/):
   - spring-boot-starter-test
   - spring-restdocs-mockmvc
 
-{{% callout note %}}
-
-We would be reusing this project to showcase the full [DevOps](/project/devops/) pipeline including Git, Jenkins and Artifactory and more.
-To facilitate these activities we had made these additional changes:
-
-- distributionManagement - Tells Maven that these are the repositories where I wish to push my code i.e springboot-junit-libs-release-local for releases and springboot-junit-libs-snapshot-local for the snapshot builds.
-
-- scm - Tells Maven the Source Code Management repository we wish to connect to, [GitHub](https://github.com/avijitliberty/springboot-junit) in this case
-
-- plugin - maven-release-plugin will help with releasing of the code to the releases repository.
-{{% /callout %}}
-
 <details>
   <summary>pom.xml</summary>
 

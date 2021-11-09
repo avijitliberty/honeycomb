@@ -10,8 +10,9 @@ icon_pack: fas
 title: SpringBoot
 date: "2018-09-09T00:00:00Z"
 type: book  # Do not modify.
+toc: false
 ---
 
-### SpringBoot CheatSheets
+## SpringBoot CheatSheets
 
 {{< list_children >}}
