@@ -92,7 +92,7 @@ feature:
   icon_pack: "custom"
   name: "Vagrant"
   description:
-  url: /post/vagrant
+  url: /cheatsheets/vagrant
 - icon: "virtualbox"
   icon_pack: "custom"
   name: "VirtualBox"

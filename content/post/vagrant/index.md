@@ -291,23 +291,5 @@ Here's some of the other useful vagrant commands to control the VM lifecycle:
   ```
   vagrant box list
   ```
-* Remove ALL your local Vagrant Boxes
-  ```
-  vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f
-  ```
-
-{{% callout warning %}}
-
-Assuming you have only one box per provider, this command will delete ALL Vagrant boxes you currently have on your system. This command does the following:
-
-- vagrant box list: Prints out a list of all installed vagrant boxes (with two columns—box name or path, and meta info)
-- cut -f 1 -d ' ': Cuts the list and takes out just the first column (using spaces to delimit the columns)
-- xargs -L 1 vagrant box remove -f: Use xargs to run one command per line, running the command vagrant box remove -f [box name from list/cut].
-
-You can use xargs' -t option to output the commands being run just before they're executed. And if you have multiple boxes per provider, or if you have multiple versions of the same box, you'll likely need to modify the command a bit like so:
-```
-vagrant box list | cut -f 1 -d ' ' | xargs -L 1 vagrant box remove -f --all
-```
-{{% /callout %}}
 
 These are just a few of the immediate basic commands you’ll want to learn while using Vagrant. For a much more in-depth manual, check out the [docs](https://www.vagrantup.com/docs/index) from Vagrant.
