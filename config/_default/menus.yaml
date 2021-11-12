@@ -18,10 +18,10 @@ main:
     url: '/cheatsheets/github/'
     parent: cheatsheets
     weight: -40
-  - name: Docker
-    url: '/cheatsheets/docker/'
-    parent: cheatsheets
-    weight: -50
+  #- name: Docker
+  #  url: '/cheatsheets/docker/'
+  #  parent: cheatsheets
+  #  weight: -50
   - name: AWS
     url: '/cheatsheets/aws/'
     parent: cheatsheets

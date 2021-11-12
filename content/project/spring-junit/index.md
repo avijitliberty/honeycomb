@@ -8,7 +8,7 @@ tags:
 date: "2016-04-27T00:00:00Z"
 toc: true
 
-weight: 20
+weight: 50
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""

@@ -5,6 +5,7 @@ summary:
 weight: 1
 icon: book
 icon_pack: fas
+toc: false
 
 # Page metadata.
 title: GitHub

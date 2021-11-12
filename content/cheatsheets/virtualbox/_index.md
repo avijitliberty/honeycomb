@@ -13,7 +13,7 @@ type: book  # Do not modify.
 toc: false
 ---
 
-## VirtualBox CheatSheet
+### VirtualBox CheatSheet
 
 VirtualBox is one the most popular Hypervisor platforms available in Windows for free. Similar ones are VMWare, Hyper-V, Docker and others.
 

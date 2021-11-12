@@ -9,7 +9,7 @@ tags:
 date: "2016-04-27T00:00:00Z"
 toc: true
 
-weight: 30
+weight: 10
 
 # Optional external URL for project (replaces project detail page).
 external_link: ""
@@ -29,7 +29,7 @@ This post will take you through a step by step guide to building and deploying a
 I have broken down the projects into sub-projects in order to keep them easier to read.
 
 * This post will focus on building the demo application.
-* In the [second part](/aws/projects/ec2-s3-rds/) we’ll look at configuring the various services on AWS, running the application locally and then deploying it in the cloud.
+* In the [second part](/aws/projects/ec2-s3-rds) we’ll look at configuring the various services on AWS, running the application locally and then deploying it in the cloud.
 * In the [third part](/aws/projects/autoscaling-loadbalancing/) we will add AutoScaling-LoadBalancing via Console.
 * In the [fourth part](/aws/projects/cloudformation/) we will do the same thing but via cloudformation.
 

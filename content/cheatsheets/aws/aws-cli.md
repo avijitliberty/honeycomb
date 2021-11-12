@@ -32,26 +32,28 @@ Installing the AWS CLI differs across operating systems, so please follow the [o
   Default region name [us-west-1]:
   Default output format [yaml]:
   ```
-  Run the following command to validate the installation. This command lists all the AWS regions in which we can make use of EC2 instances.
-  ```
-  aws ec2 describe-regions
-  ```
+  You could run the following commands to validate the installation.
 
-  ```
-  aws configure list
-  aws iam get-user
-  ```
+    ```
+    # This command lists all the AWS regions in which we can make use of EC2 instances.
+    aws ec2 describe-regions
+    # List the AWS CLI configuration data.
+    aws configure list
+    # Retrieves information about the IAM user based on the AWS access key ID
+    # used to sign the request to this operation.
+    aws iam get-user
+    ```
+
 {{% callout note %}}
-  This stores the AWS credentials in the user's home directory. In Windows at C:\\Users\\[username]\\.aws
+This stores the AWS credentials in the user's home directory. In Windows at C:\\Users\\[username]\\.aws
 {{% /callout %}}
 
-* You can also use multiple AWS users from the same account or users from multiple accounts with the AWS CLI.
-You would have to configure the command-line first like so:
+* You can also use multiple AWS users from the same account or users from multiple accounts with the AWS CLI. You would have to configure the command-line first like so:
 
   ```
   aws configure --profile <profile-name>
   ```
-and then use it while running CLI commands like so:
+  and then use it while running CLI commands like so:
   ```
   aws s3 ls --profile <profile-name>
   ```
@@ -63,7 +65,7 @@ By Default AWS CLI uses the page size of 1000; i.e if you make this call:
   ```
   aws s3api list-objects --bucket <YOUR_BUCKET_NAME>
   ```
-and you have 2500 objects in your bucket, you will be making 3 API calls to S3 but displays all the items at one go. You can set the page-size option to return a smaller set for each API call.
+  and you have 2500 objects in your bucket, you will be making 3 API calls to S3 but displays all the items at one go. You can set the page-size option to return a smaller set for each API call.
   ```
   aws s3api list-objects --bucket <YOUR_BUCKET_NAME> --page-size 5
   ```
@@ -76,8 +78,7 @@ and you have 2500 objects in your bucket, you will be making 3 API calls to S3 b
 * Sometimes, we’d just like to make sure we have the permissions…But not actually run the commands!
 Some AWS CLI commands (such as EC2) can become expensive if they succeed, say if we wanted to try to create an EC2 Instance. Some AWS CLI commands (not all) contain a --dry-run option to simulate API calls.
 
-Example:
-
+  Example:
   ```
   aws ec2 run-instances \
       --dry-run \
@@ -85,18 +86,17 @@ Example:
       --count 1 \
       --instance-type t2.micro
   ```
-The above command would fail with the following error:
-
+  The above command would fail with the following error:
   ```
-  An error occurred (DryRunOperation) when calling the RunInstances operation: Request would have succeeded, but DryRun flag is set.
+  An error occurred (DryRunOperation) when calling the RunInstances operation:
+  Request would have succeeded, but DryRun flag is set.
   ```
 
 ### Decode Errors
 
 * When you run API calls and they fail, you can get a long error message. This error message can be decoded using the STS command line: **sts decode-authorization-message**
 
-Example:
-
+  Example:
   ```
   aws sts decode-authorization-message --encoded-message <value>
   ```
@@ -110,7 +110,7 @@ Example:
           --token-code code-from-token \
           --duration-seconds 3600
   ```
-This command would give an output with the access token like so:
+  This command would give an output with the access token like so:
   ```
   {
       "Credentials": {
@@ -121,7 +121,7 @@ This command would give an output with the access token like so:
       }
   }
   ```
-We could then use these credentials to configure our CLI like so:
+  We could then use these credentials to configure our CLI like so:
   ```
   aws configure --profile mfa
   ```
