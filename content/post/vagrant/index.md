@@ -263,6 +263,7 @@ And also in that case, vagrant will pull down the box image from vagrant cloud i
 That's It! We have a Centos 8 machine running, ready to be SSH'ed into. You can verify by checking your VirtualBox page:
 ![](/images/uploads/virtualbox.PNG).
 
+### Next Steps
 Here's some of the other useful vagrant commands to control the VM lifecycle:
 
 * To SSH into the box type:
@@ -292,4 +293,4 @@ Here's some of the other useful vagrant commands to control the VM lifecycle:
   vagrant box list
   ```
 
-These are just a few of the immediate basic commands you’ll want to learn while using Vagrant. For a much more in-depth manual, check out the [docs](https://www.vagrantup.com/docs/index) from Vagrant.
+These are just a few of the immediate basic commands you’ll want to learn while using Vagrant. I have got a [CheatSheet](/cheatsheets/vagrant) for your quick reference. For a much more in-depth manual, check out the [docs](https://www.vagrantup.com/docs/index) from Vagrant.
