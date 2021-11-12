@@ -14,12 +14,12 @@ Managed Message Queues
 
 <!--more-->
 
-## Overview
+### Overview
 
 Amazon SQS is a web service that gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
 SQS is a distributed queue system that enables webservice applications to quickly and reliably queue messages that one component in the application generates to be consumed by another component.
 
-## SQS Key Facts
+### SQS Key Facts
 
 * SQS is **pull** based
 * Messages can be at most **256** KB in size
@@ -36,7 +36,7 @@ SQS is a distributed queue system that enables webservice applications to quickl
 * Short Polling - returns immediately even if there are no messages.
 * Long Polling - polls the queue periodically and only returns a response when there's a message in the queue or the timeout expires.
 
-## Security
+### Security
 
 * Encryption:
 
@@ -51,7 +51,7 @@ SQS is a distributed queue system that enables webservice applications to quickl
   * Useful for cross-account access to SQS queues
   * Useful for allowing other services (SNS, S3…) to write to an SQS queue
 
-## Visibility Timeout
+### Visibility Timeout
 
 * After a message is polled by a consumer, it becomes invisible to other consumers
 * By default, the “message visibility timeout” is 30 seconds
@@ -63,7 +63,7 @@ SQS is a distributed queue system that enables webservice applications to quickl
 
 ![SQS – Message Visibility Timeout](/images/uploads/sqs-visibility-timeout.PNG)
 
-## Dead Letter Queue
+### Dead Letter Queue
 
 <img align="right" width="200" height="200" src="/images/uploads/sqs-dlq.PNG">
 
@@ -74,14 +74,14 @@ SQS is a distributed queue system that enables webservice applications to quickl
 * Make sure to process the messages in the DLQ before they expire.
 * Good to set a retention of 14 days in the DLQ
 
-## Delay Queue
+### Delay Queue
 
 * Delay a message (consumers don’t see it immediately) up to 15 minutes
 * Default is 0 seconds (message is available right away)
 * Can set a default at queue level
 * Can override the default on send using the DelaySeconds parameter
 
-## Long Polling
+### Long Polling
 
 <img align="right" width="150" height="150" src="/images/uploads/sqs-long-polling.PNG">
 
@@ -92,13 +92,13 @@ SQS is a distributed queue system that enables webservice applications to quickl
 * Long Polling is preferable to Short Polling
 * Long polling can be enabled at the queue level or at the API level using **WaitTimeSeconds**
 
-## Extended Client
+### Extended Client
 
 * Message size limit is 256 KB, how to send large messages, e.g. 1GB?
 * Using the SQS Extended Client (Java Library)
 ![SQS Extended Client](/images/uploads/sqs-extended-client.PNG)
 
-## API
+### API
 
 * CreateQueue (MessageRetentionPeriod),
 * DeleteQueue
@@ -110,14 +110,14 @@ SQS is a distributed queue system that enables webservice applications to quickl
 * ChangeMessageVisibility: change the message timeout
 * Batch APIs for SendMessage, DeleteMessage, ChangeMessageVisibility helps decrease your costs
 
-## FIFO Queue
+### FIFO Queue
 
 * FIFO = First In First Out (ordering of messages in the queue)
 * Limited throughput: 300 msg/s without batching, 3000 msg/s with
 * Exactly-once send capability (by removing duplicates)
 * Messages are processed in order by the consumer
 
-  ### FIFO – Deduplication
+  #### FIFO – Deduplication
 
   * De-duplication interval is 5 minutes
   * Two de-duplication methods:
@@ -125,7 +125,7 @@ SQS is a distributed queue system that enables webservice applications to quickl
     * Content-based deduplication: will do a SHA-256 hash of the message body
     * Explicitly provide a Message Deduplication ID
 
-  ### FIFO – Message Grouping
+  #### FIFO – Message Grouping
 
   * If you specify the same value of MessageGroupID in an SQS FIFO queue, you can only have one consumer, and all the messages are in order
   * To get ordering at the level of a subset of messages, specify different values for MessageGroupID

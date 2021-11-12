@@ -13,12 +13,12 @@ Work with Real-Time Streaming Data
 
 <!--more-->
 
-## Overview
+### Overview
 
 Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
 ![Kinesis-Overview](/images/uploads/kinesis-overview.PNG)
 
-## Why Kinesis
+### Why Kinesis
 
 What was before the stream processing? We had batch processing!
 
@@ -41,11 +41,11 @@ What was before the stream processing? We had batch processing!
   In the new architecture we have something called a **Unified Log** (Kinesis/Apache Kafka) where the consumers read from the Unified Log only.
 ![Kinesis-NewArchitecture](/images/uploads/kinesis-newarchitecture.PNG)
 
-## Kinesis Components
+### Kinesis Components
 
 The Kinesis family includes Kinesis Data Streams, Kinesis Data Firehose, Kinesis Data Analytics and Kinesis Video Streams.
 
-## Kinesis Data Streams
+### Kinesis Data Streams
 
 In the very core of Kinesis is an immutable log. It's a log of ordered immutable records and every record has a sequence number. You can only append new data to the log.
 ![Kinesis-Logs](/images/uploads/kinesis-logs.PNG)
@@ -82,17 +82,17 @@ The following diagram shows producers placing records in a stream and then consu
 
 ![Kinesis-Streams](/images/uploads/kinesis-streams-detail2.PNG)
 
-## Kinesis API
+### Kinesis API
 ![Kinesis-Api](/images/uploads/kinesis-api.PNG)
 
 More details here: [Kinesis-CLI]({{< ref "/cheatsheets/aws/aws-cli.md#kinesis" >}} "Kinesis-CLI")
 
-### Reading data from Kinesis stream
+#### Reading data from Kinesis stream
 ![kinesis-read-api](/images/uploads/kinesis-read-api.PNG)
 
-### Scaling shards
+#### Scaling shards
 ![kinesis-scaling-api](/images/uploads/kinesis-scaling-api.PNG)
 
-## Kinesis Data Firehose
+### Kinesis Data Firehose
 
-## Kinesis Data Analytics
+### Kinesis Data Analytics

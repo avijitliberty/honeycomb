@@ -13,11 +13,11 @@ Scalable DNS and Domain Name Registration
 
 <!--more-->
 
-## Overview
+### Overview
 
 In AWS, Route53 is global managed DNS (Domain Name System) & we already know DNS is a collection of rules and records which helps clients understand how to reach a server through URLs. DNS operates on port 53. Amazon decided to call it Route53 so that’s where the name comes from.
 
-## Features
+### Features
 
 Route 53 offers the following functions:
 
@@ -52,34 +52,34 @@ Route 53 offers the following functions:
   * You can configure AWS CloudWatch Alarms for your health checks so that you get notified when a resource becomes unavailable.
   * Routing policies could be configured to route traffic depending on the DNS health checks.
 
-## Key Terms
+### Key Terms
 
-  ### Top Level Domains (TLDs)
+  #### Top Level Domains (TLDs)
   * The TLD is the farthest position to the right (as separated by a dot).
   * Parties can distribute domain names under the TLD usually through a domain name registrar.
   * Generic TLDs: Like .com, .net, .org etc.
   * Geographic TLDs: Like .us, .fr, .in etc.  
-  ### Domain Names
+  #### Domain Names
   * **Human friendly** name associated with an internet resource (honeycomb.host is a domain name)
-  ### Subdomains
+  #### Subdomains
   * Every domain name except the root domain name is called a Subdomain (api.honeycomb.host is a subdomain)
-  ### Hosts
+  #### Hosts
   * Hosts are instances or services accessible via a domain.
-  ### Name Servers
+  #### Name Servers
   * Name Servers are servers in the DNS that translates domain names to IP addresses.
 
     * **Authoritative** servers provide answers to queries about domains under their control.
     * **Non-Authoritative** servers point to other servers or serve cached copies of other Name Servers data.
-  ### Zone files
+  #### Zone files
   * A zone file is a simple text file that contains mappings between domain names and IP addresses.
   * Zone files reside in the Name Servers
   * The more zone files a Name Server has, the more requests it will be able to answer authoritatively.
-  ### TTL (Time to Live):
+  #### TTL (Time to Live):
   * TTL is length of time that a DNS records are cached on either the resolving server or user owned Laptop.
   * The Lower the TTL, the faster changes to DNS records.
   * Whenever you created record set, you need to define TTL for it.
 
-## DNS resolution
+### DNS resolution
 
 <img align="right" width="350" height="350" src="/images/uploads/dns-resolution.PNG">
 
@@ -97,7 +97,7 @@ Got the .com Domain Server IP address and give it to Name Resolving Server. Move
 5. **Check Domain Level Name Server**:
 The Name Server looks up the zone file associated with http://example.com server IP address. Pass this to Name Resolving Server and cache it. Pass this to the computer and cache it.
 
-## Record Types
+### Record Types
 
 Whenever we register a domain in Route53, it creates a hosted zone as well. A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain, such as example.com, and its subdomains (api.example.com). A hosted zone and the corresponding domain have the same name.
 
@@ -135,22 +135,22 @@ Here are some tutorials for some of the most popular domain providers on how to 
 
     ![Route53-Alias-record](/images/uploads/route53-Alias-record.PNG)
 
-## Routing Policies
+### Routing Policies
 
-### Simple Routing:
+#### Simple Routing:
 Redirect to single resource, can’t attach health check, If multiple records are attached, random one will be selected.
 
-### Weighted Routing:
+#### Weighted Routing:
 “N” % requests will go to specific Endpoint, It’s helpful to test 5–10% traffic on new application version, can attach health check.
 
-### Latency Routing:
+#### Latency Routing:
 Redirect to the server that has the least latency close to us, latency is calculated in terms to AWS Region, health check attached.
 
-### Failover Routing:
+#### Failover Routing:
 If primary resource is not working, traffic is redirect to secondary instance/resource. Health check is mandatory.
 
-### Geo-location Routing:
+#### Geo-location Routing:
 Routing is based on user location. Specify that, traffic from XYZ location should go always to particular instance/resource, if it doesn’t match, should go to default policy(We define this also).
 
-### Multi-Value:
+#### Multi-Value:
 Use when, traffic needs to go to multiple resources, health check mandatory. It’s not substitute for having an ELB.

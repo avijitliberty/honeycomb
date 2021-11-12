@@ -13,7 +13,7 @@ Managed NoSQL Database
 
 <!--more-->
 
-## Overview
+### Overview
 
 DynamoDB is a serverless, fully managed NoSQL (non-relational) database service designed for Online Transactional Processing (**OLTP**) workloads.
 
@@ -26,7 +26,7 @@ DynamoDB is a serverless, fully managed NoSQL (non-relational) database service 
 * Provides fine-grained access control
 * Integrates with other AWS services
 
-## Tables and Partitions
+### Tables and Partitions
 
 In Amazon DynamoDB, data is stored in tables. A table contains items with attributes. You can think of items as rows or tuples in a relational database and attributes as columns.
 
@@ -46,20 +46,20 @@ In Amazon DynamoDB, data is stored in tables. A table contains items with attrib
 
   ![DynamoDB-CompositeKey](/images/uploads/DynamoDB-CompositeKey.JPG)
 
-  ## DynamoDB Write Sharding
+  ### DynamoDB Write Sharding
   * Imagine we have a voting application with two candidates, candidate A and candidate B.
   * If we use a partition key of candidate_id, we will run into partitions issues, as we only have two partitions
   * Solution: add a suffix (usually random suffix, sometimes calculated suffix)
 
   ![DynamoDB Write Sharding](/images/uploads/dynamodb-write-sharding.PNG)
 
-## Durability and Availability
+### Durability and Availability
 
 Your data is highly durable and available in a DynamoDB table. All data is automatically replicated across several independent solid-state disks in separate servers in fault-isolated data centers.
 Any write call you create will not return successfully until the data is redundantly stored (at least two copies). Other copies will very rapidly converge (usually a second or less).
 If any of the servers housing your data should suffer a failure, they are removed from the replication set in seconds and automatically replaced. This allows DynamoDB to deliver against a Service Level Agreement of four nines (that’s 99.99%) of availability.
 
-## Consistency
+### Consistency
 
 Consistency is the ability to read data with the understanding that all prior writes will be reflected in the results returned. Reads can be “strongly” consistent or “eventually” consistent.
 
@@ -81,7 +81,7 @@ Repeating a read after a short interval after being written or changed should re
 {{% /tab %}}
 {{< /tabs >}}
 
-## DynamoDB Access Control
+### DynamoDB Access Control
 
 * Authentication and Access control to DynamoDB is all managed by IAM.
 * You can create an IAM user within your account who has specific permissions to
@@ -136,7 +136,7 @@ This can be done by adding a condition to an IAM policy and this will allow the 
 ```
 
 
-## Provisioned Throughput
+### Provisioned Throughput
 
 You must specify read and write throughput values when you create a table. DynamoDB reserves the necessary resources to handle your throughput requirements and divides the throughput evenly among partitions.
 
@@ -159,14 +159,14 @@ both of the following things:
    + Reduce the request frequency
    + Implement exponential back off.
 
-## DynamoDB Auto Scaling
+### DynamoDB Auto Scaling
 
    Many tables have seasonality in their loads – perhaps even with a regular ebb and flow of traffic through a business day. Auto Scaling is enabled by default, and using it everywhere is highly recommended.
    RCU and WCU are managed separately, and you set a minimum, a maximum, and a target utilization (in percent) for each.
 
    ![DynamoDB-AutoScaling](/images/uploads/DynamoDB-AutoScaling.JPG)
 
-## On-Demand Capacity
+### On-Demand Capacity
 
 * With On-Demand capacity charges will apply for reading writing and storing your data
 * You don't need to specify your capacity requirements
@@ -174,7 +174,7 @@ both of the following things:
 * Great for unpredictable workloads.
 * Also it's also really good for serverless applications where you want to pay for what you use when you use it.
 
-## Basic Item Requests
+### Basic Item Requests
 
 + Write
   - PutItem – Write item to specified primary key.
@@ -197,7 +197,7 @@ both of the following things:
 
     Checkout CLI references here: [DynamoDB-CLI]({{< ref "/cheatsheets/aws/aws-cli.md#dynamodb" >}} "DynamoDB-CLI")
 
-## Secondary Indexes
+### Secondary Indexes
 
 + To perform queries on attributes that are not part of the table’s primary key, create a secondary index.
 + There are two types: local and global.
@@ -217,7 +217,7 @@ both of the following things:
 
   ![DynamoDB-Indexes](/images/uploads/dynamodb-indexes-3.PNG)
 
-  ### Difference between LSI and GSI
+  #### Difference between LSI and GSI
 
   {{< tabs tabTotal="2" tabID="2" tabName1="Local Secondary Index" tabName2="Global Secondary Index" >}}
   {{% tab tabNum="1" %}}
@@ -247,7 +247,7 @@ both of the following things:
   {{% /tab %}}
   {{< /tabs >}}
 
-## DynamoDB Accelerator(DAX)
+### DynamoDB Accelerator(DAX)
 
 <img align="right" width="250" height="250" src="/images/uploads/dynamodb-dax.PNG">
 
@@ -267,7 +267,7 @@ Solves the Hot Key problem (too many reads)
 * Multi AZ (3 nodes minimum recommended for production)
 * Secure (Encryption at rest with KMS, VPC, IAM,CloudTrail…)
 
-## Elasticache
+### Elasticache
 
 * It's an in-memory cache in the cloud.
 * Improves performance of web applications allowing you to retrieve information from fast
@@ -292,11 +292,11 @@ in memory cache rather than slower disk based databases.
   * Write Through - Data is written to the cache as well as the back backend data store at the same time.
   Data in the cache is never stale.
 
-### DAX vs ElastiCache
+#### DAX vs ElastiCache
 
 ![DynamoDB-Caching](/images/uploads/dynamodb-dax-elasticcache.PNG)
 
-## DynamoDB Transactions
+### DynamoDB Transactions
 
 * ACID Transactions (Atomic, Consistent, Isolated, Durable)
 * Read or Write multiple items across multiple tables as an all or nothing operation.
@@ -308,7 +308,7 @@ in memory cache rather than slower disk based databases.
 
 ![DynamoDB-Transactions](/images/uploads/dynamodb-transactions.PNG)
 
-## DynamoDB TTL
+### DynamoDB TTL
 
 If items in your table lose relevance with time, you can expire the old items to keep your storage cost low and your RCU consumption efficient. Rather than paying for the WCU required to delete the items you can have DynamoDB take care of it for you for free using the time-to-live (or TTL) feature. You can configure a particular attribute name as your expiry flag – any item which has that attribute is eligible for expiry.
 The attribute should contain a number representing the time after which deletion is allowed – this time should be in epoch format. Within a day or two of passing that expiry time, DynamoDB will delete the item for you – no WCUs are consumed. It's going to be deleted within the next 48 hours.
@@ -316,7 +316,7 @@ The attribute should contain a number representing the time after which deletion
 * Good for removing any irrelevant or old data, so data that's no longer useful to your application -
 Session data, Event logs etc. after a certain period of time and this is going to really help to reduce costs for storing data from DynamoDB because it automatically removes data which you no longer need.
 
-## DynamoDB Streams
+### DynamoDB Streams
 
 A DynamoDB Stream is an ordered flow of information about changes to a table. The records in the stream are strictly in the order in which the changes occurred. Each change contains exactly one stream record. A stream record is available for 24 hours. It records all of these actions as a log and the logs are encrypted at rest and they're stored for 24 hours only
 * They're mainly used to trigger events based on a particular change within the DynamoDB table.
@@ -333,11 +333,11 @@ So they're really good for serverless architectures.
 
 ![DynamoDB-EndPoints](/images/uploads/DynamoDB-EndPoints.JPG)
 
-## Global Tables
+### Global Tables
 
 Amazon DynamoDB global tables provide a fully managed solution for deploying a multi-region, multi-master database, without having to build and maintain your own replication solution. When you create a global table, you specify the AWS regions where you want the table to be available. DynamoDB performs all of the necessary tasks to create identical tables in these regions, and propagate ongoing data changes to all of them.
 
-## Backup and Restore
+### Backup and Restore
 
 Your tables can easily be backed up and restored with DynamoDB.
 * Two types of backups are available –
@@ -350,7 +350,7 @@ Your tables can easily be backed up and restored with DynamoDB.
 * Restore times vary by partition density, but most restores will complete in well under 10hrs.
 * This time does not scale linearly with your total table size – partitioned data is restored in parallel. For most production tables, PITR is a smart choice – and you can supplement this with on-demand backups for longer-term storage.
 
-## Design Considerations
+### Design Considerations
 
 Build Resilient Client Behavior:
 

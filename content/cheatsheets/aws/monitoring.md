@@ -14,7 +14,7 @@ Monitoring Basics in AWS
 
 <!--more-->
 
-## Overview
+### Overview
 
 Monitoring in AWS is instrumented via 3 services primarily:
 * AWS CloudWatch:
@@ -36,14 +36,14 @@ Monitoring in AWS is instrumented via 3 services primarily:
 
 Overall all together these 3 technologies give you a solid foundation to monitoring AWS.
 
-## CloudWatch
+### CloudWatch
 
 * CloudWatch is basically a metrics repository. Any AWS service, such as EC2 puts metrics on the repository and you retrieve statistics based on those metrics. If you put your own metrics into CloudWatch, you can retrieve statistics on those as well.
 * CloudWatch does not aggregate data across regions. Therefore metrics are completely separate across regions.
 
   ![CloudWatch-Overview](/images/uploads/cloudwatch-overview.PNG)
 
-### CloudWatch Concepts:
+#### CloudWatch Concepts:
 
 1. **Namespaces**: Metrics belong to namespaces. There's no default namespace. The AWS namespaces follow the naming convention AWS/service.
 
@@ -208,7 +208,7 @@ from inside the instance as a custom metric)
     * Event buses can be accessed by other AWS accounts
     * Rules: how to process the events (similar to CloudWatch Events)
 
-## X-Ray
+### X-Ray
 
 * AWS X-Ray is a service that collects data about your requests that your application serves and it
   provides you with tools you can use to view filter and gain insights into that data to identify issues
@@ -221,7 +221,7 @@ from inside the instance as a custom metric)
 
   ![X-Ray](/images/uploads/x-ray-graph.PNG)
 
-### X-Ray Concepts
+#### X-Ray Concepts
 
 1. X-Ray Leverages **Tracing**:
 
@@ -360,7 +360,7 @@ from inside the instance as a custom metric)
    * API gateway
    * Elastic Beanstalk
 
-## CloudTrail
+### CloudTrail
 
 * Provides governance, compliance and audit for your AWS Account
 * CloudTrail is enabled by default!
@@ -372,7 +372,7 @@ from inside the instance as a custom metric)
 * Can put logs from CloudTrail into CloudWatch Logs
 * If a resource is deleted in AWS, look into CloudTrail first!
 
-##  CloudWatch vs X-Ray vs CloudTrail
+###  CloudWatch vs X-Ray vs CloudTrail
 
 {{< tabs tabTotal="3" tabID="1" tabName1="CloudWatch" tabName2="X-Ray" tabName3="CloudTrail" >}}
 

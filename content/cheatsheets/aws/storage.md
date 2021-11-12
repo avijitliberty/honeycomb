@@ -14,7 +14,7 @@ Storage Options in AWS
 
 <!--more-->
 
-## EBS
+### EBS
 An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical drive) you can attach to your instances while they run. Well suited for use as the primary storage for file systems, databases or for any applications that require fine granular updates and access to raw, unformatted block level storage. It allows your instances to persist data.
 
 * An EC2 machine loses its root volume (main drive) when it is manually terminated.
@@ -23,7 +23,7 @@ An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical driv
 * An EBS (Elastic Block Store) Volume is a network drive you can attach to your instances while they run
 * It allows your instances to persist data
 
-#### Features
+###### Features
 
 * It’s a network drive (i.e. not a physical drive)
 
@@ -38,7 +38,7 @@ An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical driv
   * You get billed for all the provisioned capacity
   * You can increase the capacity of the drive over time
 
-#### Types of EBS volumes
+###### Types of EBS volumes
 
 * **GP2**: General Purpose Volumes (cheap)
 
@@ -63,7 +63,7 @@ An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical driv
   * Cannot be a boot volume
   * 500 GiB – 16 TiB , 250 MiB /s throughput
 
-## InstanceStore
+### InstanceStore
 
 Some instance do not come with Root EBS volumes, instead, they come with “Instance Store” (= ephemeral storage)
 Instance store is physically attached to the machine (EBS is a network drive)
@@ -81,13 +81,13 @@ Instance store is physically attached to the machine (EBS is a network drive)
     * You can’t resize the instance store
     * Backups must be operated by the user
 
-## EFS
+### EFS
 
 Amazon Elastic File System (EFS) is a scalable cloud file storage solution for use with EC2 instances. It’s elastic because it will automatically grow and shrink as you add/remove files and is priced with pay per use model. It’s similar to EBS, but with EBS you can only mount your virtual disk to one EC2 instance. You can have multiple instances sharing an EFS volume in multiple AZs. Uses security group to control access to EFS.
 
 ![EFS](/images/uploads/efs.png)
 
-#### Features
+###### Features
 
 * Use cases: content management, web serving, data sharing, Wordpress
 * Uses NFSv4.1 protocol
@@ -109,7 +109,7 @@ Amazon Elastic File System (EFS) is a scalable cloud file storage solution for u
   * Standard: for frequently accessed files
   * Infrequent access (EFS-IA): cost to retrieve files, lower price to store
 
-## Comparison
+### Comparison
 
 {{< tabs tabTotal="3" tabID="1" tabName1="EBS" tabName2="EFS" tabName3="InstanceStore" >}}
 {{% tab tabNum="1" %}}
@@ -149,7 +149,7 @@ Amazon Elastic File System (EFS) is a scalable cloud file storage solution for u
 {{% /tab %}}
 {{< /tabs >}}
 
-## More reading
+### More reading
 
 [Making an Amazon EBS volume available for use on Linux](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
 
