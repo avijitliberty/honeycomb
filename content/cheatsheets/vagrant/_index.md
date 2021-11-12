@@ -5,7 +5,7 @@ summary:
 weight: 7
 icon: book
 icon_pack: fas
-toc: true
+toc: false
 
 # Page metadata.
 title: Vagrant

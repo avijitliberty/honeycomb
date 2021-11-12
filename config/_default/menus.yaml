@@ -17,7 +17,7 @@ main:
   - name: GitHub
     url: '/cheatsheets/github/'
     parent: cheatsheets
-    weight: -40
+    weight: 40
   #- name: Docker
   #  url: '/cheatsheets/docker/'
   #  parent: cheatsheets
@@ -25,15 +25,23 @@ main:
   - name: AWS
     url: '/cheatsheets/aws/'
     parent: cheatsheets
-    weight: -60
+    weight: 60
   - name: Jenkins
     url: '/cheatsheets/jenkins/'
     parent: cheatsheets
-    weight: -70
+    weight: 70
   - name: SpringBoot
     url: '/cheatsheets/springboot/'
     parent: cheatsheets
-    weight: -80
+    weight: 80
+  - name: VirtualBox
+    url: '/cheatsheets/virtualbox/'
+    parent: cheatsheets
+    weight: 90
+  - name: Vagrant
+    url: '/cheatsheets/vagrant/'
+    parent: cheatsheets
+    weight: 100
   - name: HowTo
     url: '#posts'
     weight: 40
