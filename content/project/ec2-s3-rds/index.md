@@ -41,7 +41,17 @@ Below diagram depicts the architecture which will be created using Console:
 
 ![](/images/uploads/vpc-wizard-1.png)
 
-Next we will add a public subnet. We will be manually adding one more public subnet after the VPC wizard is done.
+First we will pick the CIDR block for our VPC. For this demo we picked 10.0.0.0/16.
+What that means is we have got: $2 ^ (32-16) - 5 = 65,531$ IP addresses to work with in our VPC.
+
+Next we will add a public subnet. We have to pick the CIDR block for the subnet too. Here we pick 10.0.0.0/24 in us-west-1a zone. Again that means $2 ^ (32 - 24) - 5 = 251$ IP addresses.
+
+{{% callout note %}}
+Whenever you create a subnet the first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance.
+{{% /callout %}}
+
+
+For HA we will be deploying the application in 2 different AZs. So we will be manually adding one more public subnet after the VPC wizard is finished.
 
 > The CIDR block of the subnet is a subset of the the VPC CIDR block.
 
@@ -74,7 +84,7 @@ Because we would like to deploy our app with Auto-scaling/Load Balancing model w
 
 #### Step 4: Creating a Security Group to access RDS
 
-Security groups provide a means of granting granular access to AWS services. Before creating a database instance on RDS we need to create a security group that will make the database accessible from the internet. This is required so that the application running on your local machine will be able to connect to the database instance on RDS.
+Security groups provide a means of granting granular access to AWS services. Before creating a database instance on RDS we need to create a security group that will make the database accessible from the internet. This is required because as we are developing the application locally we still would need to be able to connect to the database instance on RDS.
 
 > Note: in a production environment your database should never be publicly accessible and should only be accessible to EC2 instances within your Virtual Private Cloud.
 

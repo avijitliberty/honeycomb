@@ -38,6 +38,8 @@ Overall all together these 3 technologies give you a solid foundation to monitor
 
 ### CloudWatch
 
+* Amazon CloudWatch is Amazon’s main observability service. With a log server,metrics server, dashboards, and alarms, it provides a wide range of observability features.
+
 * CloudWatch is basically a metrics repository. Any AWS service, such as EC2 puts metrics on the repository and you retrieve statistics based on those metrics. If you put your own metrics into CloudWatch, you can retrieve statistics on those as well.
 * CloudWatch does not aggregate data across regions. Therefore metrics are completely separate across regions.
 
