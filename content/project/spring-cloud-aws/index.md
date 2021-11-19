@@ -29,9 +29,8 @@ This post will take you through a step by step guide to building and deploying a
 I have broken down the projects into sub-projects in order to keep them easier to read.
 
 * This post will focus on building the demo application.
-* In the [second part](/aws/projects/ec2-s3-rds) we’ll look at configuring the various services on AWS, running the application locally and then deploying it in the cloud.
-* In the [third part](/aws/projects/autoscaling-loadbalancing/) we will add AutoScaling-LoadBalancing via Console.
-* In the [fourth part](/aws/projects/cloudformation/) we will do the same thing but via cloudformation.
+* In the [second part](/project/ec2-s3-rds) we’ll look at configuring the various services on AWS, running the application locally and then deploying it in the cloud.
+* In the [third part](/project/cloudformation/) we will do the same thing but via cloudformation.
 
 ### Prerequisites:
 In order to get the sample app up and running you’ll need access to AWS. If you don’t already have access you can register for a free account which will give you access to a bunch of great services and some pretty generous allowances. I’d encourage you to get an account set up now before going any further.
