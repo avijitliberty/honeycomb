@@ -69,5 +69,3 @@ This idea of writing a technical blog came to mind during the COVID times when w
 
 When I’m not at a computer or spending time with my family, I prefer to be outside. <br>
 :bicyclist: is something I :heart:
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
