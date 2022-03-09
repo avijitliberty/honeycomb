@@ -9,7 +9,7 @@ headless: true
 # Order that this section appears on the page.
 weight: 10
 
-title: HoneyComb
+title:
 subtitle:
 
 design:
@@ -72,7 +72,7 @@ feature:
   icon_pack: "custom"
   name: "Kubernetes"
   description:
-  #url:
+  url: /cheatsheets/kubernetes
 - icon: "spring"
   icon_pack: "custom"
   name: "SpringBoot"

@@ -17,11 +17,11 @@ main:
   - name: GitHub
     url: '/cheatsheets/github/'
     parent: cheatsheets
-    weight: 40
-  #- name: Docker
-  #  url: '/cheatsheets/docker/'
-  #  parent: cheatsheets
-  #  weight: -50
+    weight: -40
+  - name: Docker
+    url: '/cheatsheets/docker/'
+    parent: cheatsheets
+    weight: -50
   - name: AWS
     url: '/cheatsheets/aws/'
     parent: cheatsheets
@@ -42,6 +42,10 @@ main:
     url: '/cheatsheets/vagrant/'
     parent: cheatsheets
     weight: 100
+  - name: Kubernetes
+    url: '/cheatsheets/kubernetes/'
+    parent: cheatsheets
+    weight: 110
   - name: HowTo
     url: '#posts'
     weight: 40
