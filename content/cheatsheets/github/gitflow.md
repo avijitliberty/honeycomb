@@ -30,15 +30,16 @@ The pattern breaks down into two main groups of branches:
       2. main purpose is really record keeping so that we always have a location we could build from to replicate production code
       3. should only ever get code through pull request from a release branch
    - **release/** -
-      1. we will create a release branch for each monthly release by branching from develop on construct.
-      2. will serve as the source for all release candidate builds that are promoted through ETE to prod.
-      3. should be feature stable and only bugfix development should be happening against it
+      1. we will create a release branch for each release by branching from develop on **construct/regression startdate**.
+      2. will serve as the source for all release candidate builds that are promoted through uat to prod.
+      3. should be feature stable and only **bugfix** development should be happening against it
       4. will be tagged on each successful CI build.
-      5. should only receive code through pull requests from bugfix branches.
-      6. EC/EBF for prod is required a release branch would be created from master to support it. These use the naming convention release/YYYY.MM.v where v is the version number which is incremented for each off-cycle release. The first off-schedule release of any month starts at 1.
+      5. should only receive code through pull requests from **bugfix** branches.
+      6. As soon as we create the **release** branch, **develop** becomes available for changes for the next **release**. Only **bugfixes** for the current **release** happens on the **release** branch. Any new features go into **develop** for the next release.
+      7. EC/EBF for prod is required a release branch would be created from master to support it. These use the naming convention release/**Major.Minor.Patch** where Patch is the version number which is incremented for each off-cycle release. The first off-schedule release of any **release** starts at 1.
    - **develop** -
       1. default development target
-      2. all release branches will be cut from develop, that means any code going into this branch should be expected to be delivered to production with the next monthly release
+      2. all **release** branches will be cut from develop, that means any code going into this branch should be expected to be delivered to production with the next **release**
       3. will receive code from feature branch pulls, and from automated merges from release and master branches as they receive changes.
 2. **Short-term** individually owned branches which are used to house active development of a feature or bugfix. These branches should be small and live no more than a few days. They should be deleted once they have been pulled into one of the stable streams. The use of the prefixes like **feature/** or **bugfix/** will help all viewers of repository history to quickly identify the source and intent of code, this makes the use of the naming pattern very important from a usability perspective:
    - **feature/**<featureName> -
@@ -99,8 +100,6 @@ Features can be created against **develop** (default Gitflow behavior) or **rele
 As per our branching model Features go to **develop** and no where **else**
 
 Here's how that would work in Gitflow:
-<br/>
-<img align="right" width="150" height="150" src="/images/uploads/gitflow-feature-start.PNG">
 
 ```
 /c/Repos/gitflow-demo (develop)
@@ -165,8 +164,6 @@ $
 ### Use Case: Creating Releases and Bugfixes
 
 To start a **release**, use the git flow **release** command. It creates a release branch created from the **develop** branch by default.
-
-![Gitflow-Release](/images/uploads/gitflow-release-start.PNG)
 
 ```
 /c/Repos/gitflow-demo (develop)
@@ -296,14 +293,6 @@ Please make a note of what **release finish** did!
 - You are now on branch 'develop'
 
 {{% /callout %}}
-
-{{% callout note %}}
-
-As soon as we create the **release** branch, **develop** becomes available for changes for the next **release**
-Only **bugfixes** for the current **release** happens on the **release** branch. Any new features go into **develop** for the next release.
-
-{{% /callout %}}
-
 
 ### Use Case: Resolve a Merge conflict
 
@@ -688,6 +677,7 @@ Finally clean up the **hotfix** branch like so:
     $ git push origin --all --follow-tags
 
     ```
+
 ### Merging Scenarios
 
 #### Automated
