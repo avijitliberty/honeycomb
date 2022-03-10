@@ -25,20 +25,6 @@ In this project we would be demonstrating automated testing principles using a h
 
 We would be using JUnit5 for writing the tests.
 
-### JUnit5
-
-JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
-• JUnit Platform: Foundation to launch testing frameworks & it defines the TestEngine API for developing testing frameworks
-• JUnit Jupiter: New programming model and extension model and provides the JupiterTestEngine that implements the TestEngine interface to
-run tests on the JUnit Platform
-• JUnit Vintage: Provides a TestEngine to run both JUnit 3 and JUnit 4 tests
-
-{{% callout note %}}
-As of Spring Boot 2.4.0, the spring-boot-starter-test no longer includes the JUnit Vintage Engine but does include the JUnit Jupiter
-{{% /callout %}}
-
-So basically you got your Swiss Army Knife with the below testing dependency for all your testing needs.
-
 ```xml
   <dependency>
   <groupId>org.springframework.boot</groupId>

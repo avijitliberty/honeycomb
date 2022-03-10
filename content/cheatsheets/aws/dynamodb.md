@@ -15,7 +15,11 @@ Managed NoSQL Database
 
 ### Overview
 
-DynamoDB is a serverless, fully managed NoSQL (non-relational) database service designed for Online Transactional Processing (**OLTP**) workloads.
+DynamoDB is Amazon’s NoSQL solution promising “performance at any scale”.
+It can be used as a key-value store or as a document store for billions of datasets
+if need be.
+
+DynamoDB is serverless, fully managed NoSQL (non-relational) database service designed for Online Transactional Processing (**OLTP**) workloads.
 
 * Flexible Schema
 * JSON document or key-value data structures
