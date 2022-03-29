@@ -78,7 +78,8 @@ $ VBoxManage --version
 ```
 
 We could be creating multiple VMs potentially via vagrant and we would want them to communicate with each other.
-In order to do that we would need to connect the VMs to a **host-only** network.
+In order to do that we would need to connect the VMs to a **host-only** network. Read about different networking options in this other post [VirtualBox Networking](/cheatsheets/virtualbox/networking/).
+
 With the default VirtualBox installation a host-only network should get created automatically.
 We would need to verify one exists or else create one like so:
 

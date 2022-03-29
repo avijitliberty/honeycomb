@@ -1,9 +1,9 @@
 ---
-title: Building a Kubernetes Cluster
-subtitle: Building a Kubernetes 1.22 Cluster with kubeadm
+title: How to Setup Kubernetes Cluster on Vagrant VMs
+subtitle: How to Setup Kubernetes Cluster on Vagrant VMs
 
 # Summary for listings and search engines
-summary: Building a Kubernetes 1.22 Cluster with kubeadm
+summary: Building a Kubernetes 1.23 Cluster
 
 # Link this post with a project
 projects: []

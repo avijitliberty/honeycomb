@@ -37,7 +37,7 @@ feature:
   icon: fab fa-docker
   icon_pack: fab
   name: Docker
-  #url: /cheatsheets/docker
+  url: /cheatsheets/docker
 - description:
   icon: fab fa-aws
   icon_pack: fab
