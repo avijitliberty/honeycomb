@@ -61,6 +61,9 @@ The things that you will need:
 
 #### GitFlow
 
+For Windows users, [Git for Windows](https://gitforwindows.org/) is a good starting place for installing git. Git for Windows also includes Gitflow.
+For other platforms please refer documentation [here](https://github.com/nvie/gitflow/wiki/Installation)
+
 #### Maven
 
 #### Tomcat

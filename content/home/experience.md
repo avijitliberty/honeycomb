@@ -29,12 +29,7 @@ experience:
     location: California
     date_start: '2018-11-12'
     date_end: ''
-    description: |2-
-        Responsibilities include:
-
-        * Analysing
-        * Modelling
-        * Deploying
+    description: 
 
   - title: Product Consultant - Technical
     company: Cognizant

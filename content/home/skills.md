@@ -34,25 +34,30 @@ design:
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
 - description:
-  icon: fab fa-docker
-  icon_pack: fab
-  name: Docker
-  url: /cheatsheets/docker
-- description:
-  icon: fab fa-aws
-  icon_pack: fab
-  name: AWS
-  url: /cheatsheets/aws
-- description:
   icon: fab fa-github
   icon_pack: fab
   name: GitHub
   url: /cheatsheets/github
 - description:
+  icon:
+  icon_pack:
+  name:
+  url:
+- description:
+  icon: fab fa-docker
+  icon_pack: fab
+  name: Docker
+  url: /cheatsheets/docker
+- description:
   icon: fab fa-jenkins
   icon_pack: fab
   name: Jenkins
   url: /cheatsheets/jenkins
+- description:
+  icon:
+  icon_pack:
+  name:
+  url:
 
 # Uncomment to use emoji icons.
 #- icon: ":smile:"
@@ -63,31 +68,51 @@ feature:
 # Uncomment to use custom SVG icons.
 # Place custom SVG icon in `assets/images/icon-pack/`, creating folders if necessary.
 # Reference the SVG icon name (without `.svg` extension) in the `icon` field.
-- icon: "jfrog"
-  icon_pack: "custom"
-  name: "JFrog"
-  description:
-  url: /post/artifactory
-- icon: "kubernetes"
-  icon_pack: "custom"
-  name: "Kubernetes"
-  description:
-  url: /cheatsheets/kubernetes
 - icon: "spring"
   icon_pack: "custom"
   name: "SpringBoot"
   description:
   url: /cheatsheets/springboot
+- icon: "jfrog"
+  icon_pack: "custom"
+  name: "JFrog"
+  description:
+  url: /post/artifactory
+- description:
+  icon:
+  icon_pack:
+  name:
+  url:
+- icon: "kubernetes"
+  icon_pack: "custom"
+  name: "Kubernetes"
+  description:
+  url: /cheatsheets/kubernetes
 - icon: "centos"
   icon_pack: "custom"
   name: "Centos"
   description:
   url: /post/centos
+- description:
+  icon:
+  icon_pack:
+  name:
+  url:
+- description:
+  icon: fab fa-aws
+  icon_pack: fab
+  name: AWS
+  url: /cheatsheets/aws
 - icon: "ubuntu"
   icon_pack: "custom"
   name: "Ubuntu"
   description:
   #url:
+- description:
+  icon:
+  icon_pack:
+  name:
+  url:
 - icon: "vagrant"
   icon_pack: "custom"
   name: "Vagrant"
